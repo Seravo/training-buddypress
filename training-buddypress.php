@@ -224,6 +224,8 @@ function tm_trainings_author_archive($query)
 add_action('pre_get_posts', 'tm_trainings_author_archive' );
 */
 
+/* Cannot get front end editing to work */
+/*
 function tm_group_event_meta_edit($result, $EM_Event) {
 global $post;
 global $EM_Event;
@@ -241,6 +243,7 @@ global $EM_Event;
 return $result;	
 }
 add_filter('em_event_save', 'tm_group_event_meta_edit',10,2);
+*/
 
 /* Add stuff to Buddypress groups test */
 
