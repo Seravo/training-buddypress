@@ -60,8 +60,8 @@ add_role('trainings', 'Trainings', array(
 function tm_blockusers_init() {
 	global $current_user;
 
-	if (is_admin() && current_user_can('trainings')) &&
-       ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+	if (is_admin() && current_user_can('trainings') &&
+       !(defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
         wp_redirect( home_url() );
         exit;
     }
