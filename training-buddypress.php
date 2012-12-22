@@ -152,7 +152,7 @@ function tm_trainings_post_author($content){
 		global $bp;
 	   	$tm_group_id = get_post_meta($post->ID, '_group_id', true);
 		$groupinfo = groups_get_group( array( 'group_id' => $tm_group_id ) );
-		$content .= '<h2>Company</h2><p><a href="' . get_site_url() . '/groups/' . $groupinfo->slug .  '">' . $groupinfo->name . '</a></p>';
+		$content .= '<h2>Company</h2><p><a href="' . get_site_url() . '/user-groups/' . $groupinfo->slug .  '">' . $groupinfo->name . '</a></p>';
 	     	$tags = get_the_terms($EM_Event->post_id, EM_TAXONOMY_TAG);
 		if( is_array($tags) && count($tags) > 0 ){
 			$content .= '<h2>Training tags</h2>';
