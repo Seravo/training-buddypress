@@ -60,7 +60,7 @@ add_role('trainings', 'Trainings', array(
 function tm_blockusers_init() {
 	global $current_user;
 
-	if ( is_admin() && current_user_can('trainings') {) &&
+	if (is_admin() && current_user_can('trainings')) &&
        ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
         wp_redirect( home_url() );
         exit;
@@ -74,7 +74,7 @@ function tm_posts_for_trainings_author($query) {
 global $user_ID;
 global $current_user;
 if($query->is_admin) {
-	if current_user_can('trainings') {
+	if (current_user_can('trainings')) {
 			global $user_ID;
 			$query->set('author', $user_ID);
 		echo '<style type="text/css">
@@ -91,7 +91,7 @@ add_filter('pre_get_posts', 'tm_posts_for_trainings_author');
 function tm_trainings_meta_boxes() {
 	global $current_user;
 	if (is_admin()) { 
-	if current_user_can('trainings') {
+	if (current_user_can('trainings')) {
     	remove_meta_box('event-categoriesdiv', 'event', 'side');
 	/*	echo '<style type="text/css">
 		#em-event-group { display: none !important; }
@@ -106,7 +106,7 @@ add_action( 'admin_menu', 'tm_trainings_meta_boxes' );
 function tm_add_category_trainings($result, $EM_Event) {
 	global $current_user;
 	global $bp;
-		if current_user_can('trainings'){ 
+		if (current_user_can('trainings')){ 
 			wp_set_object_terms($EM_Event->post_id, 'trainings', 'event-categories');
  		} 
 	return $result;
