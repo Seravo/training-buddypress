@@ -86,16 +86,6 @@ if($query->is_admin) {
 }
 add_filter('pre_get_posts', 'tm_posts_for_trainings_author');
 
-/* Remove trainings from events admin */ 
-
-function tm_exclude_trainings_posts($query) {
-if($query->is_admin) {
-	$query->set('event-categories', '-364');
-	}
-	return $query;	
-}
-add_filter('pre_get_posts', 'tm_exclude_trainings_posts');
-
 /* Remove stuff from Trainings user's edit page */
 
 function tm_trainings_meta_boxes() {
