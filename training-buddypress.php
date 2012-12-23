@@ -90,7 +90,7 @@ add_filter('pre_get_posts', 'tm_posts_for_trainings_author');
 
 function tm_exclude_trainings_posts($query) {
 if($query->is_admin) {
-	$query->set('cat', '-364');
+	$query->set('event-categories', '-364');
 	}
 	return $query;	
 }
