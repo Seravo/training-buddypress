@@ -48,6 +48,7 @@ function tm_trainings_post_author($content){
 	if (has_term( 'koulutukset', 'event-categories')) {
 	   	global $post;
 		global $bp;
+		global $EM_Event;
 	   	$tm_group_id = get_post_meta($post->ID, '_group_id', true);
 		$groupinfo = groups_get_group( array( 'group_id' => $tm_group_id ) );
 		$content .= '<h2>Koulutuksien järjestäjät</h2><p><a href="' . get_site_url() . '/user-groups/' . $groupinfo->slug .  '">' . $groupinfo->name . '</a></p>';
