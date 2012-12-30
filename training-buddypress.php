@@ -73,6 +73,7 @@ function tm_trainings_post_author($content){
   	  	$content .= "</p><p>Ennakkovaatimukset: " . get_post_meta($post->ID, 'prerequisites', true);
   	  	$content .= "</p><p>Koulutuksen kieli: " . get_post_meta($post->ID, 'language', true);
 		$content .= "</p>";
+		$content .= '<style type="text/css"> ul.article-list, .article-list { display: none !important; } </style>';
 	}
 	return $content;
 }
