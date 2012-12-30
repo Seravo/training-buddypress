@@ -26,97 +26,10 @@
 
 /* Requires the Events manager plugin and Buddypress */
 
-/* Add custom trainings role for Trainings companies */
-
-add_role('trainings', 'Trainings', array(
-	'read' => true,
-	'edit_posts' => false,
-	'publish_events' => false,
-	'delete_others_events' => false,
-	'edit_others_events' => false,
-	'delete_events' => true,
-	'edit_events' => true,
-	'read_private_events' => true,
-	'publish_recurring_events' => false,
- 	'delete_others_recurring_events' => false,
- 	'edit_others_recurring_events' => false,
- 	'delete_recurring_events' => false,
- 	'edit_recurring_events' => true,
-	'publish_locations' => false, 
- 	'delete_others_locations' => false,
- 	'edit_others_locations' => false,
- 	'delete_locations' => false, 
- 	'edit_locations' => true,
- 	'read_private_locations' => true,
- 	'read_others_locations' => false,
-	'delete_event_categories' => false,
- 	'edit_event_categories' => false,
- 	'manage_others_bookings' => false,
- 	'manage_bookings' => true,
- 	'upload_event_images' => true
-));
-
-/* Block trainings users from backend to simplify posting of events */
-function tm_blockusers_init() {
-	global $current_user;
-
-	if (is_admin() && current_user_can('trainings') &&
-       !(defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
-        wp_redirect( home_url() );
-        exit;
-    }
-}
-add_action( 'init', 'tm_blockusers_init' );
-
-/* Make Trainings users see only their own Events in Admin */ 
-
-function tm_posts_for_trainings_author($query) {
-global $user_ID;
-global $current_user;
-if($query->is_admin) {
-	if (current_user_can('trainings')) {
-			global $user_ID;
-			$query->set('author', $user_ID);
-		echo '<style type="text/css">
-		.subsubsub { display: none !important; }
-		</style>';
-}
-}
-	return $query;	
-}
-add_filter('pre_get_posts', 'tm_posts_for_trainings_author');
-
-/* Remove stuff from Trainings user's edit page */
-
-function tm_trainings_meta_boxes() {
-	global $current_user;
-	if (is_admin()) { 
-	if (current_user_can('trainings')) {
-    	remove_meta_box('event-categoriesdiv', 'event', 'side');
-	/*	echo '<style type="text/css">
-		#em-event-group { display: none !important; }
-		</style>'; */
-				} 
-}
-}
-add_action( 'admin_menu', 'tm_trainings_meta_boxes' );
-
-/* Trainings users can only post Trainings category events */ 
-
-function tm_add_category_trainings($result, $EM_Event) {
-	global $current_user;
-	global $bp;
-		if (current_user_can('trainings')){ 
-			wp_set_object_terms($EM_Event->post_id, 'trainings', 'event-categories');
- 		} 
-	return $result;
-}
-add_filter('em_event_save', 'tm_add_category_trainings',10,2);
-
 /* Add meta fields to trainings posts  */ 
 function tm_add_metafields_trainings($result, $EM_Event) {
-	 if (has_term( 'trainings', 'event-categories')) {
-			add_post_meta($EM_Event->post_id, 'audience', 'Generic audience', true);
+	 if (has_term( 'koulutukset', 'event-categories')) {
+			add_post_meta($EM_Event->post_id, 'audience', 'General audience', true);
 			add_post_meta($EM_Event->post_id, 'prerequisites', 'No prerequisite knowledge', true);
 			add_post_meta($EM_Event->post_id, 'test', 'Does not prepare for a test', true);
 			add_post_meta($EM_Event->post_id, 'certification', 'Does not prepare for a certification', true);
@@ -128,26 +41,10 @@ function tm_add_metafields_trainings($result, $EM_Event) {
 }
 add_filter('em_event_save', 'tm_add_metafields_trainings',10,2);
 
-
-/* Contact methods for Trainings users */
-/* Not needed, can be done with Buddypress Extended Profiles */ 
-
-/* function tm_add_trainings_contactmethods($contactmethods) {
-
-	$contactmethods['company'] = 'Company (trainings)';
-	$contactmethods['companyurl'] = 'Company Website (trainings)';	
-	$contactmethods['address'] = 'Address (trainings)';
-	$contactmethods['zip'] = 'Zip Code (trainings)';
-	$contactmethods['city'] = 'City (trainings)';
-
-	return $contactmethods;
-}
-add_filter('user_contactmethods','tm_add_trainings_contactmethods',10,1); */
-
-/* Additional business info and tags for Training posts */ 
+/* Additional info for training posts */ 
 
 function tm_trainings_post_author($content){
-	if (has_term( 'trainings', 'event-categories')) {
+	if (has_term( 'koulutukset', 'event-categories')) {
 	   	global $post;
 		global $bp;
 	   	$tm_group_id = get_post_meta($post->ID, '_group_id', true);
@@ -191,51 +88,6 @@ function tm_trainings_tags( $atts ){
 	echo '</p>';
 }
 add_shortcode( 'tm_trainings_tags', 'tm_trainings_tags' );
-
-/* Add shortcode for training provider list */ 
-/* Not needed, Trainings companies are BP Groups now*/ 
-/*
-function tm_trainings_providers(){
-	$training_providers = get_users('role=trainings');
-	echo '<h2>Training providers</h2>';
-	foreach ($training_providers as $provider) {
-		echo '<p><a href="' . get_author_posts_url($provider->ID) . '">' . $provider->company . '</a></p>';
-		}
-}
-add_shortcode('tm_trainings_providers', 'tm_trainings_providers' );
-*/
-/* Trainings custom archive pages */
-/* Trainings posts shown as Buddypress group events, not needed */
-/*
-function tm_trainings_author_archive($query)
-{
-    if ( $query->is_author )
-        $query->set( 'post_type', 'event' );
-    remove_action( 'pre_get_posts', 'tm_trainings_author_archive' );
-}
-add_action('pre_get_posts', 'tm_trainings_author_archive' );
-*/
-
-/* Cannot get front end editing to work */
-/*
-function tm_group_event_meta_edit($result, $EM_Event) {
-global $post;
-global $EM_Event;
-    	$the_post = get_post($_POST['pid']); 
-    	$the_post = array(); 
-    	$the_post['data'] = array($_POST['data']);
-    	$pid = wp_update_post($the_post);
-	update_post_meta($EM_Event->post_id, 'test', $the_post['test'], true);
-	update_post_meta($EM_Event->post_id, 'certification', $the_post['certification'], true);
-	update_post_meta($EM_Event->post_id, 'price', $the_post['price'], true);
-	update_post_meta($EM_Event->post_id, 'equipment', $the_post['equipment'], true);
-	update_post_meta($EM_Event->post_id, 'testprepare', $the_post['testprepare'], true);
-	update_post_meta($EM_Event->post_id, 'moreinfo', $the_post['moreinfo'], true);
-	update_post_meta($EM_Event->post_id, 'prerequisites', $the_post['prerequisites'], true);
-return $result;	
-}
-add_filter('em_event_save', 'tm_group_event_meta_edit',10,2);
-*/
 
 /* Add stuff to Buddypress groups test */
 
@@ -298,5 +150,4 @@ function show_field_in_header( ) {
 add_action('bp_group_header_meta' , 'show_field_in_header') ;
 }
 add_action( 'bp_include', 'bp_group_meta_init' );
-
 ?>
