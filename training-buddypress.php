@@ -74,8 +74,8 @@ function tm_trainings_post_author($content){
   	  	$content .= "</p><p>Koulutuksen kieli: " . get_post_meta($post->ID, 'language', true);
 		$content .= "</p>";
 		/* Add trainings list, remove events list */
-		$content .= '<div class="row-fluid more-from-cat-list"><div class="span12"><div class="homepagebox"><h3><a href="/koulutukset/">Tulevat koulutukset</a></h><a class="morelink" href="/koulutukset/">Lisää &rarr;</a>';
-		$content .= '<style type="text/css"> .row-fluid { display: none !important; } </style>';
+		$content .= '<div class="row-fluid more-from-cat-list"><div class="span12"><div class="homepagebox"><h3><a href="/koulutukset/">Tulevat koulutukset</a></h3><a class="morelink" href="/koulutukset/">Lisää &rarr;</a>';
+		$content .= '<style type="text/css"> row-fluid, .more-from-cat-list { display: none !important; } </style>';
 	}
 	return $content;
 }
