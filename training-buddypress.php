@@ -112,7 +112,7 @@ function group_header_fields_markup() {
 	 <label for="companyaddress">Osoite</label>
 	 <input id="companyaddress" type="text" name="companyaddress" value="<?php echo custom_field('companyaddress'); ?>" /> 
 	 <br>
-	 <label for="companyservices">Palvelut</label>
+	 <label for="companyservices">Tarjotut palvelut</label>
 	 <input id="companyservices" type="text" name="companyservices" value="<?php echo custom_field('companyservices'); ?>" /> 
 	 <br>
 	 <?php }
