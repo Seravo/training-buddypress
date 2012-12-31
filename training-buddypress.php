@@ -172,4 +172,11 @@ if( is_admin() ){
     add_action('admin_menu','aaa_em_submenu2', 0.001);
 }
 
+function my_em_text_rewrites($translation, $orig) {
+	$translation = str_replace('Tapahtumat','Tapahtumat ja koulutukset', $translation);
+	return $translation;
+}
+add_action ( 'gettext', 'my_em_text_rewrites', 1, 2 );
+
+
 ?>
