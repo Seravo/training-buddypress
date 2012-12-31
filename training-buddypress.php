@@ -156,4 +156,20 @@ function show_field_in_header( ) {
 add_action('bp_group_header_meta' , 'show_field_in_header') ;
 }
 add_action( 'bp_include', 'bp_group_meta_init' );
+
+//Admin Files
+if( is_admin() ){
+
+    function aaa_em_submenu () {
+	    $plugin_page = add_submenu_page('edit.php?post_type='.EM_POST_TYPE_EVENT, 'Tapahtumat', 'Vain tapahtumat', 'edit_events', 'edit.php?post_type='.EM_POST_TYPE_EVENT.'&event-categories=59');
+    }
+    add_action('admin_menu','aaa_em_submenu', -1);
+    
+    function aaa_em_submenu2 () {
+	    $plugin_page = add_submenu_page('edit.php?post_type='.EM_POST_TYPE_EVENT, 'Koulutukset', 'Vain koulutukset', 'edit_events', 'edit.php?post_type='.EM_POST_TYPE_EVENT.'&event-categories=364');
+
+    }
+    add_action('admin_menu','aaa_em_submenu2', 0.001);
+}
+
 ?>
