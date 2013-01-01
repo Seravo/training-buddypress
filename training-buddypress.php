@@ -37,7 +37,7 @@ class TmTrainingWidget extends WP_Widget {
 
 	function widget( $args, $instance ) {
 		// Widget output
-		echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle">Koulutuksien sijainnit</h4><div class="textwidget">'; 
+		echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutuksien sijainnit</h4><div class="textwidget">'; 
 		Echo EM_Locations::output(array("full" => 1, "long_events" => 1, "category" => 364)); 
 		echo '</div></div>';
 	}
