@@ -56,22 +56,6 @@ function tm_register_trainings_widgets() {
 }
 add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 
-/* Add meta fields to trainings posts  */ 
-function tm_add_metafields_trainings($result, $EM_Event) {
-	 if (has_term( 'koulutukset', 'event-categories')) {
-			add_post_meta($EM_Event->post_id, 'audience', 'Suunnattu kaikille', true);
-			add_post_meta($EM_Event->post_id, 'prerequisites', 'Ei ennakkovaatimuksia', true);
-			add_post_meta($EM_Event->post_id, 'test', 'Ei ole koe', true);
-			add_post_meta($EM_Event->post_id, 'certification', 'Ei valmenna sertifikaattiin', true);
-			add_post_meta($EM_Event->post_id, 'price', 'Ilmainen', true);
-			add_post_meta($EM_Event->post_id, 'equipment', 'Ei laitevaatimuksia', true);
-			add_post_meta($EM_Event->post_id, 'testprepare', 'Ei valmenna kokeeseen', true);
-			add_post_meta($EM_Event->post_id, 'moreinfo', 'Ei lisätietoja', true);
-			add_post_meta($EM_Event->post_id, 'language', 'Suomeksi', true);
-			}
-}
-add_filter('em_event_save', 'tm_add_metafields_trainings',10,2);
-
 /* Additional info for training posts */ 
 
 function tm_trainings_post_author($content){
