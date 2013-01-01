@@ -129,7 +129,7 @@ add_shortcode( 'tm_trainings_tags', 'tm_trainings_tags' );
 
 function bp_group_meta_init() {
 function custom_field($meta_key) {
-	 return groups_get_groupmeta(bp_get_group_id(), $meta_key) ;
+	 return groups_get_groupmeta(bp_get_group_id(), $meta_key);
 }
 function group_header_fields_markup() {
 	 global $bp, $wpdb;?>
@@ -169,7 +169,6 @@ function group_header_fields_save( $group_id ) {
 add_filter( 'groups_custom_group_fields_editable', 'group_header_fields_markup' );
 add_action( 'groups_group_details_edited', 'group_header_fields_save' );
 add_action( 'groups_created_group',  'group_header_fields_save' );
-}
 }
 add_action( 'bp_include', 'bp_group_meta_init' );
 
