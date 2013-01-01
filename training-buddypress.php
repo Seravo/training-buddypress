@@ -37,6 +37,7 @@ class TmTrainingWidget extends WP_Widget {
 
 	function widget( $args, $instance ) {
 		// Widget output
+		<?php echo EM_Locations::output(array("full" => 1, "long_events" => 1, "category" => 364)); ?>
 	}
 
 	function update( $new_instance, $old_instance ) {
