@@ -59,14 +59,17 @@ add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 /* Hide attributes and tags from events */
 
 function tm_hide_att_meta_boxes() {
-	global $post;
+	global $EM_Event;
 	if (is_admin()) { 
-	if(!has_term('koulutukset', 'event-categories', $post->ID)) {
-    	remove_meta_box('em-event-attributes', EM_POST_TYPE_EVENT, 'normal');
-    	remove_meta_box('tagsdiv-event-tags', EM_POST_TYPE_EVENT, 'side');
-	/*	echo '<style type="text/css">
+	if(!has_term('Koulutukset', 'event-categories', $EM_Event->post_id)) {
+    	remove_meta_box('tagsdiv-event-tags', 'event', 'side'); 
+
+		echo '<style type="text/css">
 		#em-event-group { display: none !important; }
-		</style>'; */
+		</style>'; 
+		echo '<style type="text/css">
+                #em-event-attributes { display: none !important; }
+                </style>';
 				} 
 }
 }
