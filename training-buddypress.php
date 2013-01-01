@@ -61,7 +61,7 @@ add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 function tm_hide_att_meta_boxes() {
 	global $post;
 	if (is_admin()) { 
-	if(!has_term('koulutukset', 'event-categories', $post->ID) {
+	if(!has_term('koulutukset', 'event-categories', $post->ID)) {
     	remove_meta_box('em-event-attributes', EM_POST_TYPE_EVENT, 'normal');
     	remove_meta_box('tagsdiv-event-tags', EM_POST_TYPE_EVENT, 'side');
 	/*	echo '<style type="text/css">
