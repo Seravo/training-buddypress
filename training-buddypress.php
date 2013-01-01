@@ -30,14 +30,16 @@
 
 class TmTrainingWidget extends WP_Widget {
 
-	function tm_trainings_location_widget() {
+	function TmTrainingWidget() {
 		// Instantiate the parent object
 		parent::__construct( false, 'Koulutuksien sijainnit' );
 	}
 
 	function widget( $args, $instance ) {
 		// Widget output
-		<?php echo EM_Locations::output(array("full" => 1, "long_events" => 1, "category" => 364)); ?>
+		echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle">Koulutuksien sijainnit</h4><div class="textwidget">'; 
+		Echo EM_Locations::output(array("full" => 1, "long_events" => 1, "category" => 364)); 
+		echo '</div></div>';
 	}
 
 	function update( $new_instance, $old_instance ) {
