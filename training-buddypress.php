@@ -26,6 +26,33 @@
 
 /* Requires the Events manager plugin and Buddypress */
 
+/* Training event location widget */ 
+
+class TmTrainingWidget extends WP_Widget {
+
+	function tm_trainings_location_widget() {
+		// Instantiate the parent object
+		parent::__construct( false, 'Koulutuksien sijainnit' );
+	}
+
+	function widget( $args, $instance ) {
+		// Widget output
+	}
+
+	function update( $new_instance, $old_instance ) {
+		// Save widget options
+	}
+
+	function form( $instance ) {
+		// Output admin widget options form
+	}
+}
+
+function tm_register_trainings_widgets() {
+	register_widget( 'TmTrainingWidget' );
+}
+add_action( 'widgets_init', 'tm_register_trainings_widgets' );
+
 /* Add meta fields to trainings posts  */ 
 function tm_add_metafields_trainings($result, $EM_Event) {
 	 if (has_term( 'koulutukset', 'event-categories')) {
