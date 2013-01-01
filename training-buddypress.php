@@ -60,8 +60,8 @@ add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 
 function tm_hide_att_meta_boxes() {
 	if (is_admin()) { 
-	if(has_term( 'tapahtumat', 'event-categories')) {
-    	remove_meta_box('em-event-attributes', 'event', 'core');
+	if(has_term('tapahtumat', 'event-categories') {
+    	remove_meta_box('em-event-attributes', 'event', 'normal');
     	remove_meta_box('tagsdiv-event-tags', 'event', 'side');
 	/*	echo '<style type="text/css">
 		#em-event-group { display: none !important; }
