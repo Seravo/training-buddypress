@@ -170,23 +170,6 @@ add_filter( 'groups_custom_group_fields_editable', 'group_header_fields_markup' 
 add_action( 'groups_group_details_edited', 'group_header_fields_save' );
 add_action( 'groups_created_group',  'group_header_fields_save' );
  
-// Show the custom field in the group header
-function show_field_in_header( ) {
-	 echo '<div><h3>Tietoa</h3>';
-	 echo '<p>Verkkosivu: <a href="'; 
-	 echo custom_field('companyurl'); 
-	 echo '">'; 
-	 echo custom_field('companyurl'); 
-	 echo '</a></p>';
-	 echo '<p>Puhelin: ' . custom_field('companyphone') . '</p>'; 
-	 echo '<p>Sähköposti: ' . custom_field('companyemail') . '</p>'; 
-	 echo '<p>Osoite: ' . custom_field('companyaddress') . '</p>'; 
-	 echo '<p>Palvelut: ' . custom_field('companyservices') . '</p></div>'; 
-	 }
-add_action('bp_group_header_meta' , 'show_field_in_header') ;
-}
-add_action( 'bp_include', 'bp_group_meta_init' );
-
 //Admin Files
 if( is_admin() ){
 
