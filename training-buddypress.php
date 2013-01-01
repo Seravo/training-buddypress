@@ -169,7 +169,10 @@ function group_header_fields_save( $group_id ) {
 add_filter( 'groups_custom_group_fields_editable', 'group_header_fields_markup' );
 add_action( 'groups_group_details_edited', 'group_header_fields_save' );
 add_action( 'groups_created_group',  'group_header_fields_save' );
- 
+}
+}
+add_action( 'bp_include', 'bp_group_meta_init' );
+
 //Admin Files
 if( is_admin() ){
 
