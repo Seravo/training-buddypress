@@ -56,6 +56,21 @@ function tm_register_trainings_widgets() {
 }
 add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 
+/* Hide attributes and tags from events */
+
+function tm_hide_att_meta_boxes() {
+	if (is_admin()) { 
+	if(has_term( 'tapahtumat', 'event-categories')) {
+    	remove_meta_box('em-event-attributes', 'event', 'core');
+    	remove_meta_box('tagsdiv-event-tags', 'event', 'side');
+	/*	echo '<style type="text/css">
+		#em-event-group { display: none !important; }
+		</style>'; */
+				} 
+}
+}
+add_action( 'admin_menu', 'tm_hide_att_meta_boxes' );
+
 /* Additional info for training posts */ 
 
 function tm_trainings_post_author($content){
