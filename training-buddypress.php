@@ -26,10 +26,16 @@
 
 /* Requires the Events manager plugin and Buddypress */
 
-/* Add Trainings to admin bar */
+/* Change admin bar for subscribers */
 
 function tm_admin_bar_render() {
     global $wp_admin_bar;
+    global $user_ID;
+    global $current_user;
+    $user_roles = $current_user->roles;
+    $user_role = array_shift($user_roles);
+    if ($user_role == "subscriber") {
+    $wp_admin_bar->remove_menu('site-name');
     $wp_admin_bar->remove_menu('new-event-recurring', 'new-content');
     $wp_admin_bar->remove_menu('new-location', 'new-content');
     $wp_admin_bar->remove_menu('new-event', 'new-content');
@@ -45,8 +51,8 @@ function tm_admin_bar_render() {
         'title' => __('Tapahtuma'),
         'href' => admin_url('http://coss.seravo.fi/kalenteri/lisaa-tapahtuma/')
     ) );
+    }
 }
-
 add_action( 'wp_before_admin_bar_render', 'tm_admin_bar_render' );
 
 /* Make Subscriber users see only their own Events in Admin */ 
