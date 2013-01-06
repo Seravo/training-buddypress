@@ -268,31 +268,24 @@ function tm_hide_att_meta_boxes() {
                 </style>';
 				} 
 }
-}
-add_action( 'admin_menu', 'tm_hide_att_meta_boxes' );
-
-/* Hint box for Event editor */
 
 function tm_trainings_add_hint_box (){
 	add_meta_box( 
         'tm_trainings_hint_box',
-        __( 'Koulutuksien lisäämisestä', 'myplugin_textdomain' ),
+        __( 'Koulutuksien lisäämisestä', 'tm_trainings' ),
         'tm_trainings_hint_box',
-        'post',
-        'high'
-    );
-    add_meta_box(
-        'tm_trainings_hint_box',
-        __( 'Koulutuksien lisäämisestä', 'myplugin_textdomain' ), 
-        'tm_trainings_hint_box',
-        'page',
-        'high'
+        'event',
+        'side',
+	'high'
     );
 }
 
 function tm_trainings_hint_box ($post) {
 	echo '<p>HUOMAA: Laita koulutukset kategoriaan Koulutus ja tallenna. Tämän jälkeen voit liittää koulutusyhtiön ja kirjoittaa lisätietoja.</p>';
 }
+}
+add_action( 'admin_menu', 'tm_hide_att_meta_boxes' );
+
 
 /* Additional info for training posts */ 
 
