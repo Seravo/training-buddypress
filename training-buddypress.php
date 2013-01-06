@@ -30,13 +30,23 @@
 
 function tm_admin_bar_render() {
     global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('new-event-recurring', 'new-content');
+    $wp_admin_bar->remove_menu('new-location', 'new-content');
+    $wp_admin_bar->remove_menu('new-event', 'new-content');
     $wp_admin_bar->add_menu( array(
         'parent' => 'new-content',
         'id' => 'training',
         'title' => __('Koulutus'),
         'href' => admin_url( 'http://coss.seravo.fi/koulutus-uusi/')
     ) );
+        $wp_admin_bar->add_menu( array(
+        'parent' => 'new-content',
+        'id' => 'event',
+        'title' => __('Tapahtuma'),
+        'href' => admin_url('http://coss.seravo.fi/kalenteri/lisaa-tapahtuma/')
+    ) );
 }
+
 add_action( 'wp_before_admin_bar_render', 'tm_admin_bar_render' );
 
 /* Make Subscriber users see only their own Events in Admin */ 
