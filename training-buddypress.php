@@ -256,8 +256,8 @@ add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 function tm_hide_att_meta_boxes() {
 	global $EM_Event;
 	if (is_admin()) { 
-		echo '<div id="message">Aseta koulutuksen kategoriaksi Koulutukset ja tallenna. Tämän jälkeen voit kirjoittaa koulutuksen lisätiedot ja asettaa sen omalle organisaatiollesi.</div>';
 	if(!has_term('Koulutukset', 'event-categories', $EM_Event->post_id)) {
+		add_action( 'add_meta_boxes', 'tm_trainings_add_hint_box' );
     	remove_meta_box('tagsdiv-event-tags', 'event', 'side'); 
 
 		echo '<style type="text/css">
@@ -270,6 +270,29 @@ function tm_hide_att_meta_boxes() {
 }
 }
 add_action( 'admin_menu', 'tm_hide_att_meta_boxes' );
+
+/* Hint box for Event editor */
+
+function tm_trainings_add_hint_box (){
+	add_meta_box( 
+        'tm_trainings_hint_box',
+        __( 'Koulutuksien lisäämisestä', 'myplugin_textdomain' ),
+        'tm_trainings_hint_box',
+        'post',
+        'high'
+    );
+    add_meta_box(
+        'tm_trainings_hint_box',
+        __( 'Koulutuksien lisäämisestä', 'myplugin_textdomain' ), 
+        'tm_trainings_hint_box',
+        'page',
+        'high'
+    );
+}
+
+function tm_trainings_hint_box ($post) {
+	echo '<p>HUOMAA: Laita koulutukset kategoriaan Koulutus ja tallenna. Tämän jälkeen voit liittää koulutusyhtiön ja kirjoittaa lisätietoja.</p>';
+}
 
 /* Additional info for training posts */ 
 
