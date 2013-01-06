@@ -26,6 +26,19 @@
 
 /* Requires the Events manager plugin and Buddypress */
 
+/* Add Trainings to admin bar */
+
+function tm_admin_bar_render() {
+    global $wp_admin_bar;
+    $wp_admin_bar->add_menu( array(
+        'parent' => 'new-content',
+        'id' => 'training',
+        'title' => __('Koulutus'),
+        'href' => admin_url( 'http://coss.seravo.fi/koulutus-uusi/')
+    ) );
+}
+add_action( 'wp_before_admin_bar_render', 'tm_admin_bar_render' );
+
 /* Make Subscriber users see only their own Events in Admin */ 
 
 function tm_posts_for_trainings_author($query) {
