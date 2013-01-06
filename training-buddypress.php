@@ -26,6 +26,26 @@
 
 /* Requires the Events manager plugin and Buddypress */
 
+/* Make Subscriber users see only their own Events in Admin */ 
+
+function tm_posts_for_trainings_author($query) {
+global $user_ID;
+global $current_user;
+$user_roles = $current_user->roles;
+$user_role = array_shift($user_roles);
+if($query->is_admin) {
+	if ($user_role == "subscriber") {
+			global $user_ID;
+			$query->set('author', $user_ID);
+		echo '<style type="text/css">
+		.subsubsub { display: none !important; }
+		</style>';
+}
+}
+	return $query;	
+}
+add_filter('pre_get_posts', 'tm_posts_for_trainings_author');
+
 /* Training company widget */
 
 class TmTrainingCompanyWidget extends WP_Widget {
