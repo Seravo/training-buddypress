@@ -256,6 +256,7 @@ add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 function tm_hide_att_meta_boxes() {
 	global $EM_Event;
 	if (is_admin()) { 
+		echo "<p>Aseta koulutuksen kategoriaksi Koulutukset ja tallenna. Tämän jälkeen voit kirjoittaa koulutuksen lisätiedot ja asettaa sen omalle organisaatiollesi.</p>";
 	if(!has_term('Koulutukset', 'event-categories', $EM_Event->post_id)) {
     	remove_meta_box('tagsdiv-event-tags', 'event', 'side'); 
 
