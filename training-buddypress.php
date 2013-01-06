@@ -196,5 +196,4 @@ function my_em_text_rewrites($translation, $orig) {
 }
 add_action ( 'gettext', 'my_em_text_rewrites', 1, 2 );
 
-
 ?>
