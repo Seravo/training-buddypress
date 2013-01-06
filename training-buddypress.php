@@ -84,13 +84,14 @@ class TmTrainingCompanyWidget extends WP_Widget {
 							<div class="item-title"><a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>"><?php bp_group_name() ?></a></div>
 							<div class="item-meta">
 								<span class="activity">
-								<?php
+								<?php /*
 									if ( 'newest' == $instance['group_default'] )
 										printf( __( 'created %s', 'buddypress' ), bp_get_group_date_created() );
 									if ( 'active' == $instance['group_default'] )
 										printf( __( 'active %s', 'buddypress' ), bp_get_group_last_active() );
 									else if ( 'popular' == $instance['group_default'] )
 										bp_group_member_count();
+								*/
 								?>
 								</span>
 							</div>
