@@ -275,7 +275,7 @@ class TmTrainingWidget extends WP_Widget {
 
 	function TmTrainingWidget() {
 		// Instantiate the parent object
-		parent::__construct( false, 'Koulutuksien sijainnit' );
+		parent::__construct( false, 'Koulutusten sijainnit' );
 	}
 
 	function widget( $args, $instance ) {
@@ -345,7 +345,7 @@ function tm_trainings_post_author($content){
 		global $EM_Event;
 	   	$tm_group_id = get_post_meta($post->ID, '_group_id', true);
 		$groupinfo = groups_get_group( array( 'group_id' => $tm_group_id ) );
-		$content .= '<h2>Koulutuksien järjestäjät</h2><p><a href="' . get_site_url() . '/user-groups/' . $groupinfo->slug .  '">' . $groupinfo->name . '</a></p>';
+		$content .= '<h2>Koulutuksen järjestäjä</h2><p><a href="' . get_site_url() . '/user-groups/' . $groupinfo->slug .  '">' . $groupinfo->name . '</a></p>';
 	     	$tags = get_the_terms($EM_Event->post_id, EM_TAXONOMY_TAG);
 		if( is_array($tags) && count($tags) > 0 ){
 			$content .= '<h2>Koulutuksien tunnisteet</h2>';
