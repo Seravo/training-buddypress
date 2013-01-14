@@ -345,10 +345,10 @@ function tm_trainings_post_author($content){
 		global $EM_Event;
 	   	$tm_group_id = get_post_meta($post->ID, '_group_id', true);
 		$groupinfo = groups_get_group( array( 'group_id' => $tm_group_id ) );
-		$content .= '<h2>Koulutuksen järjestäjä</h2><p><a href="' . get_site_url() . '/user-groups/' . $groupinfo->slug .  '">' . $groupinfo->name . '</a></p>';
+		$content .= '<h2>Järjestäjä</h2><p><a href="' . get_site_url() . '/koulutusyhtiot/' . $groupinfo->slug .  '">' . $groupinfo->name . '</a></p>';
 	     	$tags = get_the_terms($EM_Event->post_id, EM_TAXONOMY_TAG);
 		if( is_array($tags) && count($tags) > 0 ){
-			$content .= '<h2>Koulutuksien tunnisteet</h2>';
+			$content .= '<h2>Tunnisteet</h2>';
 			$tags_list = array();
 			foreach($tags as $tag){
 			$link = get_term_link($tag->slug, EM_TAXONOMY_TAG);
