@@ -105,7 +105,7 @@ class TmTrainingCompanyWidget extends WP_Widget {
 			$instance['group_default'] = 'popular';
 
 		if ( empty( $instance['title'] ) )
-			$instance['title'] = __( 'Koulutusyhtiöt', 'buddypress' );
+			$instance['title'] = __( 'Koulutusten tarjoajat', 'buddypress' );
 
 		echo $before_widget;
 
