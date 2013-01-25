@@ -339,7 +339,7 @@ add_action( 'admin_menu', 'tm_hide_att_meta_boxes' );
 /* Additional info for training posts */ 
 
 function tm_trainings_post_author($content){
-	if (has_term( 'koulutukset', 'event-categories')) {
+	if (is_single() && has_term( 'koulutukset', 'event-categories')) {
 	   	global $post;
 		global $bp;
 		global $EM_Event;
