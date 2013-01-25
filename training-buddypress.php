@@ -296,6 +296,8 @@ class TmTrainingWidget extends WP_Widget {
 
 function tm_register_trainings_widgets() {
 	register_widget( 'TmTrainingWidget' );
+	register_widget( 'TmTrainingTagWidget');
+	register_widget( 'TmEventTagWidget');
 	register_widget( 'TmTrainingCompanyWidget' );
 }
 add_action( 'widgets_init', 'tm_register_trainings_widgets' );
@@ -374,6 +376,71 @@ function tm_trainings_post_author($content){
 	return $content;
 }
 add_filter('em_event_output','tm_trainings_post_author');
+
+class TmTrainingTagWidget extends WP_Widget {
+
+	function TmTrainingTagWidget() {
+		// Instantiate the parent object
+		parent::__construct( false, 'Koulutusten avainsanat' );
+	}
+		function widget( $args, $instance ) {
+		// Widget output
+		echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutuksien avainsanat</h4><div class="textwidget">'; 
+  		$tm_trainings_tags = get_terms('event-tags',  array( 'hide_empty' => 1, 'orderby' => 'count' ));
+		$sep = '';
+		foreach ( $tm_trainings_tags as $tm_trainings_tags ) {
+		$tagcount= EM_Events::get(array('scope'=>'future','category'=>364,'tag'=>$tm_trainings_tags->term_id));  
+		if (count($tagcount) > 0) {
+			echo $sep . '<a href="' . get_term_link($tm_trainings_tags) . '">' . $tm_trainings_tags->name . '</a>';
+			$sep = ', '; 
+			}
+
+		}
+	echo '</p>';		
+	echo '</div></div>';
+	}
+
+	function update( $new_instance, $old_instance ) {
+		// Save widget options
+	}
+
+	function form( $instance ) {
+		// Output admin widget options form
+	}
+	
+}
+
+class TmEventTagWidget extends WP_Widget {
+
+	function TmEventTagWidget() {
+		// Instantiate the parent object
+		parent::__construct( false, 'Tapahtumien avainsanat' );
+	}
+		function widget( $args, $instance ) {
+		// Widget output
+		echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Tapahtumien avainsanat</h4><div class="textwidget">'; 
+  		$tm_trainings_tags = get_terms('event-tags',  array( 'hide_empty' => 1, 'orderby' => 'count' ));
+		$sep = '';
+		foreach ( $tm_trainings_tags as $tm_trainings_tags ) {
+		$tagcount= EM_Events::get(array('scope'=>'future','category'=>59,'tag'=>$tm_trainings_tags->term_id));  
+		if (count($tagcount) > 0) {
+			echo $sep . '<a href="' . get_term_link($tm_trainings_tags) . '">' . $tm_trainings_tags->name . '</a>';
+			$sep = ', '; 
+			}
+
+		}
+	echo '</p>';		
+	echo '</div></div>';
+	}
+
+	function update( $new_instance, $old_instance ) {
+		// Save widget options
+	}
+
+	function form( $instance ) {
+		// Output admin widget options form
+	}
+}
 
 
 /* Add shortcode for trainings tags */ 
