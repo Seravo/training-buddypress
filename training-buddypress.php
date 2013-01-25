@@ -281,7 +281,7 @@ class TmTrainingWidget extends WP_Widget {
 	function widget( $args, $instance ) {
 		// Widget output
 		echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutuksien sijainnit</h4><div class="textwidget">'; 
-		Echo EM_Locations::output(array("full" => 1, "long_events" => 1, "category" => 364)); 
+		echo EM_Locations::output(array("full" => 1, "long_events" => 1, "category" => 364)); 
 		echo '</div></div>';
 	}
 
@@ -377,7 +377,7 @@ add_filter('em_event_output','tm_trainings_post_author');
 
 /* Add shortcode for event tags */ 
 function tm_trainings_tags( $atts ){
- 	$tm_trainings_tags = get_terms('event-tags','hide-empty=0&orderby=id');
+ 	$tm_trainings_tags = get_terms('event-tags','hide-empty=1&orderby=id');
 	$sep = '';
 	echo '<h2>Koulutuksien tunnisteet</h2><p>';
 	foreach ( $tm_trainings_tags as $tm_trainings_tags ) {
