@@ -375,19 +375,39 @@ function tm_trainings_post_author($content){
 }
 add_filter('em_event_output','tm_trainings_post_author');
 
-/* Add shortcode for event tags */ 
-function tm_trainings_tags( $atts ){
- 	$tm_trainings_tags = get_terms('event-tags','hide-empty=0&orderby=id');
+/* Add shortcode for trainings tags */ 
+function tm_trainings_tags( $atts ){  	
+  	$tm_trainings_tags = get_terms('event-tags',  array( 'hide_empty' => 1, 'orderby' => 'count' ));
 	$sep = '';
-	echo '<h2>Koulutuksien tunnisteet</h2><p>';
 	foreach ( $tm_trainings_tags as $tm_trainings_tags ) {
-			if( ++$count > 60 ) break;  
+		$tagcount= EM_Events::get(array('scope'=>'future','category'=>364,'tag'=>$tm_trainings_tags->term_id));  
+		if (count($tagcount) > 0) {
 			echo $sep . '<a href="' . get_term_link($tm_trainings_tags) . '">' . $tm_trainings_tags->name . '</a>';
 			$sep = ', '; 
+			}
+
 		}
 	echo '</p>';
 }
 add_shortcode( 'tm_trainings_tags', 'tm_trainings_tags' );
+
+/* Add shortcode for event tags */ 
+function tm_events_tags( $atts ){  	
+  	$tm_trainings_tags = get_terms('event-tags',  array( 'hide_empty' => 1, 'orderby' => 'count' ));
+	$sep = '';
+	foreach ( $tm_trainings_tags as $tm_trainings_tags ) {
+		$tagcount= EM_Events::get(array('scope'=>'future','category'=>59,'tag'=>$tm_trainings_tags->term_id));  
+		if (count($tagcount) > 0) {
+			echo $sep . '<a href="' . get_term_link($tm_trainings_tags) . '">' . $tm_trainings_tags->name . '</a>';
+			$sep = ', '; 
+			}
+
+		}
+	echo '</p>';
+}
+add_shortcode( 'tm_events_tags', 'tm_events_tags' );
+
+
 
 /* Add stuff to Buddypress groups test */
 
