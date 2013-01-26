@@ -318,14 +318,14 @@ function tm_register_trainings_widgets() {
 add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 
 /* Hide attributes and tags from events */
-
+/* Events and Trainings have separate tags, does this make sense any more? */
+/*
 function tm_hide_att_meta_boxes() {
 	global $EM_Event;
 	if (is_admin()) { 
-	if(!has_term('Koulutukset', 'event-categories', $EM_Event->post_id)) {
+	if(!has_term(364, 'event-categories', $EM_Event->post_id)) {
 		add_action( 'add_meta_boxes', 'tm_trainings_add_hint_box' );
-    	remove_meta_box('tagsdiv-event-tags', 'event', 'side'); 
-
+    		remove_meta_box('tagsdiv-event-tags', 'event', 'side'); 
 		echo '<style type="text/css">
 		#em-event-group { display: none !important; }
 		</style>'; 
@@ -334,7 +334,8 @@ function tm_hide_att_meta_boxes() {
                 </style>';
 				} 
 }
-
+add_action( 'admin_menu', 'tm_hide_att_meta_boxex' );
+*/
 function tm_trainings_add_hint_box (){
 	add_meta_box( 
         'tm_trainings_hint_box',
@@ -350,7 +351,7 @@ function tm_trainings_hint_box ($post) {
 	echo '<p>HUOMAA: Laita koulutukset kategoriaan Koulutus ja tallenna. Tämän jälkeen voit liittää koulutusyhtiön ja kirjoittaa lisätietoja.</p>';
 }
 }
-add_action( 'admin_menu', 'tm_hide_att_meta_boxes' );
+add_action( 'admin_menu', 'tm_trainings_add_hint_box' );
 
 
 /* Additional info for training posts */ 
@@ -430,7 +431,7 @@ class TmEventTagWidget extends WP_Widget {
 	function TmEventTagWidget() {
 		// Instantiate the parent object
 		parent::__construct( false, 'Tapahtumien avainsanat' );
-	}
+		}
 		function widget( $args, $instance ) {
 		// Widget output
 		echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Tapahtumien avainsanat</h4><div class="textwidget">'; 
