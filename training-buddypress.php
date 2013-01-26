@@ -350,7 +350,6 @@ function tm_trainings_add_hint_box (){
 function tm_trainings_hint_box ($post) {
 	echo '<p>HUOMAA: Laita koulutukset kategoriaan Koulutus ja tallenna. Tämän jälkeen voit liittää koulutusyhtiön ja kirjoittaa lisätietoja.</p>';
 }
-}
 add_action( 'admin_menu', 'tm_trainings_add_hint_box' );
 
 
