@@ -586,50 +586,5 @@ function my_em_text_rewrites($translation, $orig) {
 	return $translation;
 }
 add_action ( 'gettext', 'my_em_text_rewrites', 1, 2 );
-
-class WPtagthis {
-public $data;
-function WPtagthis() { 
-$this->data=get_option('WPtagthis');
-	}
-function ajax(){
-if(is_single() and  $_POST['tagthisajax']==1 and !empty($_POST['tag']) and !empty($_POST['vote'])){
-$this->tagging_input($_POST['tag'], $_POST['vote']);
-$this->tag_this_ui();
-exit;																					       		}																							}			       
-function all_tags_array(){																				$tags=get_tags();																					$tags_array=array();																				
-foreach($tags as $tag){																					$tags_array[]=$tag->name;																						}																			
-return $tags_array;																					}
-function tag_this_ui(){																				
-global $post;																						$tags=wp_get_post_terms($post->ID,'event-tags');																	echo "<div class='tag-this'>";																				echo "<input type='hidden' class='available-tags' value='".implode(",",$this->all_tags_array())."'/>";											echo "<form method='post' action='".get_permalink()."' class='tagthis-input'><input type='text' name='tagthis'/><input type='submit' value='Tag This!'/></form>";			echo "<ul class='tagthis-taglist'>";
-foreach($tags as $tag){																		
-echo "<li><a href='".get_tag_link($tag->term_id)."'>".$tag->name."</a></li>";					
-echo "</ul>";
-echo "</div>";
-}
-}
-function tag_this_input(){										
-if(isset($_POST['tagthis']) || isset($_GET['tagthis'],$_GET['tagthisvote'])){	
-$this->tagging_input($_REQUEST['tagthis'], $_REQUEST['tagthisvote']);								         
-}																						
-}
-function tagging_input($tag, $vote="add"){																		global $post;									
-if($this->data['lowercase_tags']){											
-$tag=strtolower($tag);
-}																							$tags=wp_get_post_terms($post->ID,'event-tags');   			
-wp_set_post_terms( $post->ID, $tag, 'event-tags', true);																}
-}
-
-   wp_enqueue_script( 'wp-tag-this-frontend', '/wp-content/themes/coss/css/wp-tag-this-frontend.js');
-   wp_enqueue_script( 'jqueryui','https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js' );
-   wp_enqueue_style( 'jqueryuistyle','https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/base/jquery-ui.css');
-   add_action('tag_this', array($WPtagthis,'tag_this_input'));
-   add_action('tag_this', array($WPtagthis,'tag_this_ui'));
-
-
-
-function TagThis(){
-  do_action("tag_this");
-}
 			
 ?>
