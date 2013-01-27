@@ -299,12 +299,9 @@ class TmTrainingWidget extends WP_Widget {
 		$tm_towns = array();
   		$tm_locations_town = EM_Locations::get(array('scope'=>'future','category'=>364));
 		foreach ( $tm_locations_town as $tm_town ) {
-			    echo $tm_town->location_town;
 			    array_push($tm_towns, $tm_town->location_town); 
 		}
-		echo var_dump($tm_towns);
 		$tm_towns = array_unique($tm_towns);
-		echo var_dump($tm_towns);
 		foreach ( $tm_towns as $tm_towns ) {
 			echo "<h4>" . $tm_towns . "</h4>";
 			echo "<ul>";
