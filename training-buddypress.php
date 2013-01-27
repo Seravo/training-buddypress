@@ -27,7 +27,7 @@
 /* Requires the Events manager plugin and Buddypress */
 
 /* Change admin bar for subscribers */
-
+/*
 function tm_admin_bar_render() {
     global $wp_admin_bar;
     global $user_ID;
@@ -69,9 +69,9 @@ function tm_admin_bar_render() {
     }
 }
 add_action( 'wp_before_admin_bar_render', 'tm_admin_bar_render' );
-
+*/
 /* Make Subscriber users see only their own Events in Admin */ 
-
+/*
 function tm_posts_for_trainings_author($query) {
 global $user_ID;
 global $current_user;
@@ -89,7 +89,7 @@ if($query->is_admin) {
 	return $query;	
 }
 add_filter('pre_get_posts', 'tm_posts_for_trainings_author');
-
+*/
 /* Training company widget */
 
 class TmTrainingCompanyWidget extends WP_Widget {
@@ -349,6 +349,7 @@ function tm_hide_att_meta_boxes() {
 }
 add_action( 'admin_menu', 'tm_hide_att_meta_boxex' );
 */
+/*
 function tm_trainings_add_hint_box (){
 	add_meta_box( 
         'tm_trainings_hint_box',
@@ -364,7 +365,7 @@ function tm_trainings_hint_box ($post) {
 	echo '<p>HUOMAA: Laita koulutukset kategoriaan Koulutus ja tallenna. Tämän jälkeen voit liittää koulutusyhtiön ja kirjoittaa lisätietoja.</p>';
 }
 add_action( 'admin_menu', 'tm_trainings_add_hint_box' );
-
+*/
 
 /* Additional info for training posts */ 
 /* Better to do this in a template */ 
@@ -506,12 +507,13 @@ add_shortcode( 'tm_events_tags', 'tm_events_tags' );
 
 /* Saving tags from frontend */
 
-function tm_frontend_tag_save($post_id) {
-	global $wpdb, $EM_Event;
-	$newtag = $_REQUEST['newtag'];
-	wp_set_post_terms($post_id, $newtag, 'event_tags');
+function tm_frontend_tag_save($result, $EM_Event) {
+	$newtag = get_post_meta($EM_Event->post_id, 'em_newtag', true);
+	wp_set_post_terms($EM_Event->post_id, $newtag, 'event-tags', true);
 }
-add_filter('em_event_save', 'tm_frontend_tag_save');
+add_filter('em_event_save', 'tm_frontend_tag_save',10,2);
+add_filter('em_event_save_meta', 'tm_frontend_tag_save',10,2);
+
 
 
 /* Add stuff to Buddypress groups test */
