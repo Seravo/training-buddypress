@@ -295,29 +295,9 @@ class TmTrainingWidget extends WP_Widget {
 
 	function widget( $args, $instance ) {
 		// Widget output
-		/*
 		echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutusten sijainnit</h4><div class="textwidget">'; 
-		/* echo EM_Locations::output(array("full" => 0, "long_events" => 1, "category" => 364)); */
-		/* $cities = EM_Get_Locations(array("full" => 0, "long_events" => 1, "category" => 364));
-		echo $cities; */
-		/*
-		$cities = em_get_locations();
-		echo var_dump($cities);
-		echo $cities[1];
-     		echo "<ul>";
-     		     foreach ( $cities as $term ) {
-       		     echo "<li>" . $cities . "BLOPPy" . $term->town . "</li>";
-			}
-     			echo "</ul>";
- 			
-		echo '</div></div>';*/
 		$tm_towns = array();
-		echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutuksien avainsanat</h4><div class="textwidget">'; 
   		$tm_locations_town = EM_Locations::get(array('scope'=>'future','category'=>364));
-		$sep = '';
-		/* foreach ( $tm_locations_town as $tm_locations_town ) { */
-		/* echo var_dump($tm_locations_town);
-		echo $tm_locations_town; */
 		foreach ( $tm_locations_town as $tm_town ) {
 			    echo $tm_town->location_town;
 			    array_push($tm_towns, $tm_town->location_town); 
@@ -331,20 +311,7 @@ class TmTrainingWidget extends WP_Widget {
 			echo EM_Events::output(array('scope'=>'future', 'limit'=>2, 'pagination'=>0, 'town'=>$tm_towns, 'category'=>364, 'format'=>'<li>#_EVENTLINK</li>'));
 			echo "</ul>";
 		}
-		
-		
-		/* echo $tm_locations_town[location_town];*/
-		echo 'testi';
-		/*
-		}
-		foreach ( $tm_locations_town as $tm_locations_town ) {
-		$tagcount= EM_Events::get(array('scope'=>'future','category'=>364,'tag'=>$tm_trainings_tags->term_id));  
-		if (count($tagcount) > 0) {
-		echo $sep . '<a href="' . get_term_link($tm_trainings_tags) . '">' . $tm_trainings_tags->name . '</a>'; $sep = ', '; 
-			}
-			}
-		echo '</p>';  
-		echo '</div></div>'; */
+		echo '</div></div>';
 
 	} 
 
