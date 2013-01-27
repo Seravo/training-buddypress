@@ -366,7 +366,8 @@ add_action( 'admin_menu', 'tm_trainings_add_hint_box' );
 
 
 /* Additional info for training posts */ 
-
+/* Better to do this in a template */ 
+/*
 function tm_trainings_post_author($content){
 	if (is_single() && has_term( 'koulutukset', 'event-categories')) {
 	   	global $post;
@@ -396,13 +397,13 @@ function tm_trainings_post_author($content){
   	  	$content .= "</p><p>Ennakkovaatimukset: " . get_post_meta($post->ID, 'prerequisites', true);
   	  	$content .= "</p><p>Koulutuksen kieli: " . get_post_meta($post->ID, 'language', true);
 		$content .= "</p>";
-		/* Add trainings list, remove events list */
 		$content .= '<div class="row-fluid more-from-cat-list"><div class="span12"><div class="homepagebox"><h3><a href="/koulutukset/">Tulevat koulutukset</a></h3><a class="morelink" href="/koulutukset/">Lisää &rarr;</a>';
 		$content .= '<style type="text/css"> row-fluid, .more-from-cat-list { display: none !important; } </style>';
 	}
 	return $content;
 }
 add_filter('em_event_output','tm_trainings_post_author');
+*/
 
 class TmTrainingTagWidget extends WP_Widget {
 
