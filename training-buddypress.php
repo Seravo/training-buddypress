@@ -504,6 +504,14 @@ function tm_events_tags( $atts ){
 }
 add_shortcode( 'tm_events_tags', 'tm_events_tags' );
 
+/* Saving tags from frontend */
+
+function tm_frontend_tag_save($post_id) {
+	global $wpdb, $EM_Event;
+	$newtag = $_REQUEST['newtag'];
+	wp_set_post_terms($post_id, $newtag, 'event_tags');
+}
+add_filter('em_event_save', 'tm_frontend_tag_save');
 
 
 /* Add stuff to Buddypress groups test */
