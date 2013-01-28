@@ -71,6 +71,22 @@ function tm_admin_bar_render() {
 add_action( 'wp_before_admin_bar_render', 'tm_admin_bar_render' );
 */
 
+/* Search shortcode for trainings */
+
+function tm_trainings_search( $form ) {
+	 
+	    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
+	    <div><label class="screen-reader-text" for="s">' . __('Search for:') . '</label>
+	    <input type="text" value="' . get_search_query() . '" name="s" id="s" tax="events-categories" category="364" />
+	    <input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+	    </div>
+	    </form>';
+	 
+	    return $form;
+	}
+	 
+add_shortcode('tm_trainings_search', 'tm_trainings_search');
+
 /* Seems like there is a need to add hidden metaboxes again? */ 
 
 function tm_trainings_admin() {
