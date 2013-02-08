@@ -77,7 +77,8 @@ function tm_trainings_search( $form ) {
 	 
 	    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
 	    <div><label class="screen-reader-text" for="s">' . __('Search for:') . '</label>
-	    <input type="text" value="' . get_search_query() . '" name="s" id="s" tax="events-categories" category="364" />
+	    <input type="text" value="' . get_search_query() . '" name="s" id="s" />
+	    <input name="post_type" type="hidden" value="event" />
 	    <input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
 	    </div>
 	    </form>';
@@ -416,7 +417,7 @@ function tm_trainings_post_author($content){
 		$content .= '<p>' . implode(', ', $tags_list) . '</p>';
 		}
   		$content .= "<h2>Lisätietoa</h2>";
-  	  	$content .= "<p>On koe: " . get_post_meta($post->ID, 'test', true);
+  	  	$content .= "<p>On koe: " . get_post_meta($post->ID, 'test5B', true);
   	  	$content .= "</p><p>Valmistaa sertifikaattiin: " . get_post_meta($post->ID, 'certification', true);
   	  	$content .= "</p><p>Hinta: " . get_post_meta($post->ID, 'price', true);
   	  	$content .= "</p><p>Varusteet: " . get_post_meta($post->ID, 'equipment', true);
