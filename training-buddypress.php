@@ -535,7 +535,7 @@ add_shortcode( 'tm_events_tags', 'tm_events_tags' );
 /* Saving tags from frontend, can now write new tag into attribute field newtag */
 
 function tm_frontend_tag_save($result, $EM_Event) {
-	$newtag = get_post_meta($EM_Event->post_id, 'newtag', true);
+	$newtag = get_post_meta($EM_Event->post_id, 'Tunniste', true);
 	wp_set_post_terms($EM_Event->post_id, $newtag, 'event-tags', true);
 	return $result;
 }
