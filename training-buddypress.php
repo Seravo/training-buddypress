@@ -27,7 +27,7 @@
 /* Requires the Events manager plugin and Buddypress */
 
 /* Change admin bar for subscribers */
-/*
+
 function tm_admin_bar_render() {
     global $wp_admin_bar;
     global $user_ID;
@@ -69,7 +69,7 @@ function tm_admin_bar_render() {
     }
 }
 add_action( 'wp_before_admin_bar_render', 'tm_admin_bar_render' );
-*/
+
 
 /* Search shortcode for trainings */
 
@@ -89,16 +89,16 @@ function tm_trainings_search( $form ) {
 add_shortcode('tm_trainings_search', 'tm_trainings_search');
 
 /* Seems like there is a need to add hidden metaboxes again? */ 
-
+/*
 function tm_trainings_admin() {
 	add_meta_box('em-event-attributes', __('Attributes','dbem'), array('EM_Event_Post_Admin','meta_box_attributes'),EM_POST_TYPE_EVENT, 'normal','default');
 	add_meta_box('em-event-group', __('Group Ownership','dbem'), 'bp_em_meta_box_group',EM_POST_TYPE_EVENT, 'side','low');
 }
 add_filter('admin_menu', 'tm_trainings_admin');
-
+*/
 
 /* Make Subscriber users see only their own Events in Admin */ 
-/*
+
 function tm_posts_for_trainings_author($query) {
 global $user_ID;
 global $current_user;
@@ -116,7 +116,7 @@ if($query->is_admin) {
 	return $query;	
 }
 add_filter('pre_get_posts', 'tm_posts_for_trainings_author');
-*/
+
 /* Training company widget */
 
 class TmTrainingCompanyWidget extends WP_Widget {
