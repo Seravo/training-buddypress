@@ -324,7 +324,7 @@ class TmTrainingWidget extends WP_Widget {
 		// Widget output
 		echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutusten sijainnit</h4><div class="textwidget">'; 
 		$tm_towns = array();
-  		$tm_locations_town = EM_Locations::get(array('scope'=>'future','category'=>364));
+  		$tm_locations_town = EM_Locations::get(array('scope'=>'future','category'=>374));
 		foreach ( $tm_locations_town as $tm_town ) {
 			    array_push($tm_towns, $tm_town->location_town); 
 		}
@@ -332,7 +332,7 @@ class TmTrainingWidget extends WP_Widget {
 		foreach ( $tm_towns as $tm_towns ) {
 			echo "<h4>" . $tm_towns . "</h4>";
 			echo "<ul>";
-			echo EM_Events::output(array('scope'=>'future', 'limit'=>2, 'pagination'=>0, 'town'=>$tm_towns, 'category'=>364, 'format'=>'<li>#_EVENTLINK</li>'));
+			echo EM_Events::output(array('scope'=>'future', 'limit'=>2, 'pagination'=>0, 'town'=>$tm_towns, 'category'=>374, 'format'=>'<li>#_EVENTLINK</li>'));
 			echo "</ul>";
 		}
 		echo '</div></div>';
@@ -446,7 +446,7 @@ class TmTrainingTagWidget extends WP_Widget {
   		$tm_trainings_tags = get_terms('event-tags',  array( 'hide_empty' => 1, 'orderby' => 'count' ));
 		$sep = '';
 		foreach ( $tm_trainings_tags as $tm_trainings_tags ) {
-		$tagcount= EM_Events::get(array('scope'=>'future','category'=>364,'tag'=>$tm_trainings_tags->term_id));  
+		$tagcount= EM_Events::get(array('scope'=>'future','category'=>374,'tag'=>$tm_trainings_tags->term_id));  
 		if (count($tagcount) > 0) {
 			echo $sep . '<a href="' . get_term_link($tm_trainings_tags) . '">' . $tm_trainings_tags->name . '</a>';
 			$sep = ', '; 
@@ -505,7 +505,7 @@ function tm_trainings_tags( $atts ){
   	$tm_trainings_tags = get_terms('event-tags',  array( 'hide_empty' => 1, 'orderby' => 'count' ));
 	$sep = '';
 	foreach ( $tm_trainings_tags as $tm_trainings_tags ) {
-		$tagcount= EM_Events::get(array('scope'=>'future','category'=>364,'tag'=>$tm_trainings_tags->term_id));  
+		$tagcount= EM_Events::get(array('scope'=>'future','category'=>374,'tag'=>$tm_trainings_tags->term_id));  
 		if (count($tagcount) > 0) {
 			echo $sep . '<a href="' . get_term_link($tm_trainings_tags) . '">' . $tm_trainings_tags->name . '</a>';
 			$sep = ', '; 
