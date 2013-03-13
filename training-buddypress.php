@@ -361,11 +361,12 @@ class TmPortalWidget extends WP_Widget {
                 // Widget output
                 echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutusportaali</h4><div class="textwidget">';
 		     if (!is_user_logged_in()) {
-		     
-		     			       } Else {
-					       
-					     
-					     }
+		     <p>Koulutusportaali esittelee Suomessa järjestettävät avoimen lähdekoodin koulutukset. <a href="http://coss.fi/rekisteroidy/">Rekisteröidy palveluun</a>! 
+		     } Else {
+		     Voit lisätä oman <a href="http://coss.fi/koulutusyhtiot/create/">koulutusorganisaatiosi</a> ja <a href="http://coss.fi/koulutus-uusi/">koulutustapahtumasi</a>.</p>
+		     }
+<p>Yhteistyössä:</p>
+<img src="/uploads/2013/03/Oske_vaaka1-300x90.jpg"></img>
                 echo '</div></div>';
 
         }
