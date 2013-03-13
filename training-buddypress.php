@@ -348,11 +348,44 @@ class TmTrainingWidget extends WP_Widget {
 	}
 }
 
+/* Training event location widget */
+
+class TmPortalWidget extends WP_Widget {
+
+        function TmPortalWidget() {
+                // Instantiate the parent object
+                parent::__construct( false, 'Koulutusportaali' );
+        }
+
+        function widget( $args, $instance ) {
+                // Widget output
+                echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutusportaali</h4><div class="textwidget">';
+		     if (!is_user_logged_in()) {
+		     
+		     			       } Else {
+					       
+					     
+					     }
+                echo '</div></div>';
+
+        }
+
+        Function update( $new_instance, $old_instance ) {
+                // Save widget options
+        }
+
+        function form( $instance ) {
+                // Output admin widget options form
+        }
+}
+
+
 function tm_register_trainings_widgets() {
 	register_widget( 'TmTrainingWidget' );
 	register_widget( 'TmTrainingTagWidget');
 	register_widget( 'TmEventTagWidget');
 	register_widget( 'TmTrainingCompanyWidget' );
+	register_widget( 'TmPortalWidget' );
 }
 add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 
