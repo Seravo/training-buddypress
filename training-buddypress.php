@@ -400,7 +400,7 @@ add_action( 'admin_menu', 'tm_trainings_remove_trainings_box' );
 function tm_trainings_add_hint_box (){
 	add_meta_box( 
         'tm_trainings_hint_box',
-        __( 'Koulutuksien lisäämisestä', 'tm_trainings' ),
+        __( 'Tapahtumat ja koulutukset', 'tm_trainings' ),
         'tm_trainings_hint_box',
         'event',
         'side',
@@ -409,7 +409,12 @@ function tm_trainings_add_hint_box (){
 }
 
 function tm_trainings_hint_box ($post) {
-	echo '<p>HUOMAA: Laita koulutukset kategoriaan Koulutus ja tallenna. Tämän jälkeen voit liittää koulutusyhtiön ja kirjoittaa lisätietoja.</p>';
+	echo '<p><b>Huomaa</b>: ryhmät, määreet ja tunnisteet ovat käytössä vain koulutuksissa. Niitä ei kannata lisätä tapahtumiin.</p>';
+	echo '<p>Tavalliset käyttäjät lisäävät koulutukset ja tapahtumat eri lomakkeista, mutta ylläpitäjä lisää molemmat tältä sivulta.</p>';
+	echo '<p>Tapahtumat lisätään kategoriaan Tapahtumat ja koulutukset kategoriaan Koulutukset.</p>';
+	echo '<p>Tunnisteita käytetään tällä hetkellä vain koulutuksissa. Niitä ei kannata lisätä tapahtumiin.</p>';
+	echo '<p>Kohdasta Ryhmä asetetaan koulutuksen omistava koulutusorganisaatio.</p>';
+	echo '<p>Kohdassa Määreet on koulutuksiin lisättäviä lisätietoja.</p>';
 }
 add_action( 'admin_menu', 'tm_trainings_add_hint_box' );
 
@@ -633,6 +638,7 @@ if( is_admin() ){
 
 function my_em_text_rewrites($translation, $orig) {
 	$translation = str_replace('Tapahtumat','Tapahtumat ja koulutukset', $translation);
+	$translation = str_replace('Group Ownership','Koulutusorganisaatio', $translation);
 	return $translation;
 }
 add_action ( 'gettext', 'my_em_text_rewrites', 1, 2 );
