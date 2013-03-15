@@ -637,7 +637,6 @@ if( is_admin() ){
 }
 
 function my_em_text_rewrites($translation, $orig) {
-	$translation = str_replace('Tapahtumat','Tapahtumat ja koulutukset', $translation);
 	$translation = str_replace('Group Ownership','Koulutusorganisaatio', $translation);
 	return $translation;
 }
