@@ -417,10 +417,10 @@ function tm_trainings_add_hint_box (){
 }
 
 function tm_trainings_hint_box ($post) {
-	echo '<p><b>Huomaa</b>: koulutusorganisaatiot, määreet ja tunnisteet ovat käytössä vain koulutuksissa. Niitä ei kannata lisätä tapahtumiin.</p>';
+	echo '<p><b>Huomaa</b>: koulutusorganisaatiot, määreet ja tunnisteet ovat käytössä vain koulutuksissa. Ne ovat piilossa, jos kyse on tapahtumasta.</p>';
 	echo '<p>Tavalliset käyttäjät lisäävät koulutukset ja tapahtumat eri lomakkeista, mutta ylläpitäjä lisää molemmat tältä sivulta.</p>';
 	echo '<p>Tapahtumat lisätään kategoriaan Tapahtumat ja koulutukset kategoriaan Koulutukset.</p>';
-	echo '<p>Tunnisteita käytetään tällä hetkellä vain koulutuksissa. Niitä ei kannata lisätä tapahtumiin.</p>';
+	echo '<p>Tunnisteita käytetään tällä hetkellä vain koulutuksissa.</p>';
 	echo '<p>Kohdasta Koulutusorganisaatiot asetetaan koulutuksen omistava koulutusorganisaatio.</p>';
 	echo '<p>Kohdassa Määreet on vain koulutuksiin lisättäviä lisätietoja. Niitä ei tallenneta tapahtumiin.</p>';
 }
