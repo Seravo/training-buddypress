@@ -32,7 +32,6 @@ function tm_admin_bar_render() {
     global $wp_admin_bar;
     global $user_ID;
     global $current_user;
-    if ( is_user_logged_in() ) {
     $user_roles = $current_user->roles;
     $user_role = array_shift($user_roles);
     if ($user_role == "subscriber") {
@@ -53,12 +52,7 @@ function tm_admin_bar_render() {
         'href' => admin_url('/kalenteri/lisaa-tapahtuma/')
     ) );
     }
-} else {
-remove_action( ‘wp_footer’, ‘bp_core_admin_bar’, 8 );
 
-remove_action( ‘admin_footer’, ‘bp_core_admin_bar’ );
-}
-}
 add_action( 'wp_before_admin_bar_render', 'tm_admin_bar_render' );
 
 
