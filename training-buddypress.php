@@ -629,7 +629,7 @@ if( is_admin() ){
     add_action('admin_menu','aaa_em_submenu', -1);
     
     function aaa_em_submenu2 () {
-	    $plugin_page = add_submenu_page('edit.php?post_type='.EM_POST_TYPE_EVENT, 'Koulutukset', 'Vain koulutukset', 'edit_events', 'edit.php?post_type='.EM_POST_TYPE_EVENT.'&event-categories=364');
+	    $plugin_page = add_submenu_page('edit.php?post_type='.EM_POST_TYPE_EVENT, 'Koulutukset', 'Vain koulutukset', 'edit_events', 'edit.php?post_type='.EM_POST_TYPE_EVENT.'&event-categories=374');
 
     }
     add_action('admin_menu','aaa_em_submenu2', 0.001);
