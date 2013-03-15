@@ -378,11 +378,26 @@ function tm_hide_att_meta_boxes() {
 add_action( 'admin_menu', 'tm_hide_att_meta_boxes' );
 
 function tm_trainings_remove_trainings_box (){
+/*	 global $EM_Event;*/
+	 
+		 	if (has_term(59, 'event-categories')) {
 	                 remove_meta_box('tagsdiv-event-tags', 'event', 'side');
 			 remove_meta_box('em-event-group', 'event', 'side');
 			 remove_meta_box('em-event-attributes', 'event', 'normal');
+			 } 
+			 /*
+			 else  {
+			 add_meta_box('em-event-group', __('Group Ownership','dbem'), 'bp_em_meta_box_group',EM_POST_TYPE_EVENT, 'side','low');
+			 add_meta_box('em-event-attributes', __('Attributes','dbem'), array('EM_Event_Post_Admin','meta_box_attributes'),EM_POST_TYPE_EVENT, 'normal','default');
+			 add_meta_box('tagsdiv-event-tags', 'Koulutuksien tunnisteet', 'post_tags_meta_box', null, 'side', 'core', array( 'taxonomy' => 'event-tags' ));
+       			 }
+			 */
 }
 add_action( 'add_meta_boxes_event', 'tm_trainings_remove_trainings_box' );
+
+function meta_box_attributes(){
+	 em_locate_template('forms/event/attributes.php',true);
+}
 
 
 
