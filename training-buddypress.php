@@ -52,21 +52,6 @@ function tm_admin_bar_render() {
         'href' => admin_url('/kalenteri/lisaa-tapahtuma/')
     ) );
     }
-        if ($user_role == "administrator") {
-    $wp_admin_bar->remove_menu('new-event', 'new-content');
-        $wp_admin_bar->add_menu( array(
-        'parent' => 'new-content',
-        'id' => 'training',
-        'title' => __('Koulutus'),
-        'href' => admin_url( '/koulutus-uusi/')
-    ) );
-        $wp_admin_bar->add_menu( array(
-        'parent' => 'new-content',
-        'id' => 'event',
-        'title' => __('Tapahtuma'),
-        'href' => admin_url('/kalenteri/lisaa-tapahtuma/')
-    ) );
-    }
 }
 add_action( 'wp_before_admin_bar_render', 'tm_admin_bar_render' );
 
