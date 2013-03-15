@@ -73,13 +73,6 @@ function tm_trainings_search( $form ) {
 	 
 add_shortcode('tm_trainings_search', 'tm_trainings_search');
 
-/* Seems like there is a need to add hidden metaboxes again? */ 
-
-function tm_trainings_admin() {
-	add_meta_box('em-event-attributes', __('Attributes','dbem'), array('EM_Event_Post_Admin','meta_box_attributes'),EM_POST_TYPE_EVENT, 'normal','default');
-	add_meta_box('em-event-group', __('Group Ownership','dbem'), 'bp_em_meta_box_group',EM_POST_TYPE_EVENT, 'side','low');
-}
-add_action('admin_menu', 'tm_trainings_admin');
 
 /* Make Subscriber users see only their own Events in Admin */ 
 
@@ -375,25 +368,22 @@ function tm_register_trainings_widgets() {
 add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 
 /* Hide attributes and tags from events */
-/*
+
 function tm_hide_att_meta_boxes() {
 	if (is_admin()) { 
 		add_action( 'add_meta_boxes', 'tm_trainings_add_hint_box' );
 		add_action( 'remove_meta_boxes', 'tm_trainings_remove_trainings_box' );
-    		add_meta_box('tagsdiv-event-tags', 'event', 'side'); 
-		add_meta_box('postcustom', 'event', 'normal');
-		add_meta_box('em-event-group', 'event', 'side');
 		}
 }
 add_action( 'admin_menu', 'tm_hide_att_meta_boxes' );
 
 function tm_trainings_remove_trainings_box (){
-	                 add_meta_box('tagsdiv-event-tags', 'event', 'side');
-			 add_meta_box('em-event-group', EM_POST_TYPE_EVENT, 'side');
-			 add_meta_box('postcustom', 'event', 'normal');
+	                 remove_meta_box('tagsdiv-event-tags', 'event', 'side');
+			 remove_meta_box('em-event-group', 'event', 'side');
+			 remove_meta_box('em-event-attributes', 'event', 'normal');
 }
-add_action( 'admin_menu', 'tm_trainings_remove_trainings_box' );
-*/
+add_action( 'add_meta_boxes_event', 'tm_trainings_remove_trainings_box' );
+
 
 
 
