@@ -1,4 +1,3 @@
-
 <?php
   /*
     Plugin Name: Training Buddypress
@@ -55,7 +54,9 @@ function tm_admin_bar_render() {
     ) );
     }
 } else {
+remove_action( ‘wp_footer’, ‘bp_core_admin_bar’, 8 );
 
+remove_action( ‘admin_footer’, ‘bp_core_admin_bar’ );
 }
 }
 add_action( 'wp_before_admin_bar_render', 'tm_admin_bar_render' );
