@@ -52,7 +52,7 @@ function tm_admin_bar_render() {
         'href' => admin_url('/kalenteri/lisaa-tapahtuma/')
     ) );
     }
-
+}
 add_action( 'wp_before_admin_bar_render', 'tm_admin_bar_render' );
 
 
