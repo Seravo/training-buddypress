@@ -628,18 +628,6 @@ if( is_admin() ){
     }
     add_action('admin_menu','aaa_em_submenu2', 0.001);
 
-    function aaa_em_submenu3 () {
-            $plugin_page = add_submenu_page('edit.php?post_type='.EM_POST_TYPE_EVENT, 'Tapahtumat', 'Uusi tapahtuma', 'edit_events', '../kalenteri/lisaa-tapahtuma/');
-
-    }
-    add_action('admin_menu','aaa_em_submenu3', 0.002);
-
-    function aaa_em_submenu4 () {
-            $plugin_page = add_submenu_page('edit.php?post_type='.EM_POST_TYPE_EVENT, 'Koulutukset', 'Uusi koulutus', 'edit_events', '../koulutus-uusi/');
-
-    }
-    add_action('admin_menu','aaa_em_submenu4', 0.003);
-
 }
 
 function my_em_text_rewrites($translation, $orig) {
