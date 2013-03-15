@@ -76,8 +76,8 @@ add_shortcode('tm_trainings_search', 'tm_trainings_search');
 /* Seems like there is a need to add hidden metaboxes again? */ 
 
 function tm_trainings_admin() {
-	remove_meta_box('em-event-attributes', __('Attributes','dbem'), array('EM_Event_Post_Admin','meta_box_attributes'),EM_POST_TYPE_EVENT, 'normal','default');
-	remove_meta_box('em-event-group', __('Group Ownership','dbem'), 'bp_em_meta_box_group',EM_POST_TYPE_EVENT, 'side','low');
+	add_meta_box('em-event-attributes', __('Attributes','dbem'), array('EM_Event_Post_Admin','meta_box_attributes'),EM_POST_TYPE_EVENT, 'normal','default');
+	add_meta_box('em-event-group', __('Group Ownership','dbem'), 'bp_em_meta_box_group',EM_POST_TYPE_EVENT, 'side','low');
 }
 add_filter('admin_menu', 'tm_trainings_admin');
 
