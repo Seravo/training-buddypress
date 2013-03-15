@@ -375,25 +375,25 @@ function tm_register_trainings_widgets() {
 add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 
 /* Hide attributes and tags from events */
-
+/*
 function tm_hide_att_meta_boxes() {
 	if (is_admin()) { 
 		add_action( 'add_meta_boxes', 'tm_trainings_add_hint_box' );
 		add_action( 'remove_meta_boxes', 'tm_trainings_remove_trainings_box' );
-    		remove_meta_box('tagsdiv-event-tags', 'event', 'side'); 
-		remove_meta_box('postcustom', 'event', 'normal');
-		remove_meta_box('em-event-group', 'event', 'side');
+    		add_meta_box('tagsdiv-event-tags', 'event', 'side'); 
+		add_meta_box('postcustom', 'event', 'normal');
+		add_meta_box('em-event-group', 'event', 'side');
 		}
 }
-add_action( 'admin_menu', 'tm_hide_att_meta_boxex' );
+add_action( 'admin_menu', 'tm_hide_att_meta_boxes' );
 
 function tm_trainings_remove_trainings_box (){
-	                 remove_meta_box('tagsdiv-event-tags', 'event', 'side');
-			 remove_meta_box('em-event-group', EM_POST_TYPE_EVENT, 'side');
-			 remove_meta_box('postcustom', 'event', 'normal');
+	                 add_meta_box('tagsdiv-event-tags', 'event', 'side');
+			 add_meta_box('em-event-group', EM_POST_TYPE_EVENT, 'side');
+			 add_meta_box('postcustom', 'event', 'normal');
 }
 add_action( 'admin_menu', 'tm_trainings_remove_trainings_box' );
-
+*/
 
 
 
