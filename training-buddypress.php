@@ -79,7 +79,7 @@ function tm_trainings_admin() {
 	add_meta_box('em-event-attributes', __('Attributes','dbem'), array('EM_Event_Post_Admin','meta_box_attributes'),EM_POST_TYPE_EVENT, 'normal','default');
 	add_meta_box('em-event-group', __('Group Ownership','dbem'), 'bp_em_meta_box_group',EM_POST_TYPE_EVENT, 'side','low');
 }
-add_filter('admin_menu', 'tm_trainings_admin');
+add_action('admin_menu', 'tm_trainings_admin');
 
 /* Make Subscriber users see only their own Events in Admin */ 
 
