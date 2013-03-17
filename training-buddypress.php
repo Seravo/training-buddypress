@@ -645,7 +645,7 @@ function my_em_text_rewrites($translation, $orig) {
 }
 add_action ( 'gettext', 'my_em_text_rewrites', 1, 2 );
 
-tm_trainings_user_email() {
+function tm_trainings_user_email() {
 			$message ='':
 		wp_mail($user_email, 'Tervetuloa koulutusportaaliin', $message);
 }
