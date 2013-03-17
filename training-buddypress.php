@@ -646,7 +646,12 @@ function my_em_text_rewrites($translation, $orig) {
 add_action ( 'gettext', 'my_em_text_rewrites', 1, 2 );
 
 function tm_trainings_user_email() {
-			$message ='';
+			$message ='Rekisteröidyttyäsi koulutusportaaliin voit mennä osoitteeseen http://coss.fi/koulutusyhtiot/create/ ja kirjoittaa koulutusyhtiösi perustiedot. Paina sen jälkeen nappia Perusta tämä ryhmä ja jatka.';
+			$message ='Seuraavassa ruudussa kysytään yksityisyysasetuksia, mutta voit painaa yksinkertaisesti nappia Jatka.';
+			$message ='Nyt voit valita koulutusorganisaation logon kovalevyltä painamalla Browse ja Lataa kuva. Asetettuasi kuvan koon voit painaa nappia Seuraava vaihe.';
+			$message ='Viimeisessä vaiheessa voit kutsua muita organisaation jäseniä mukaan koulutusorganisaatioon, mutta heitä ei ehkä vielä ole palvelussa. Paina Valmis.';
+			$message ='Nyt koulutusorganisaatiosi on luotu. Voit mennä osoitteeseen http://coss.fi/koulutus-uusi/ luomaan ensimmäisen koulutustapahtuman.';
+			
 		wp_mail($user_email, 'Tervetuloa koulutusportaaliin', $message);
 }
 add_action('wp_new_user_notification', 'tm_trainings_user_email');
