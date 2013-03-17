@@ -651,8 +651,13 @@ function tm_trainings_user_email() {
 			$message ='Nyt voit valita koulutusorganisaation logon kovalevyltä painamalla Browse ja Lataa kuva. Asetettuasi kuvan koon voit painaa nappia Seuraava vaihe.';
 			$message ='Viimeisessä vaiheessa voit kutsua muita organisaation jäseniä mukaan koulutusorganisaatioon, mutta heitä ei ehkä vielä ole palvelussa. Paina Valmis.';
 			$message ='Nyt koulutusorganisaatiosi on luotu. Voit mennä osoitteeseen http://coss.fi/koulutus-uusi/ luomaan ensimmäisen koulutustapahtuman.';
-			
-		wp_mail($user_email, 'Tervetuloa koulutusportaaliin', $message);
+			$message ='Ensin koulutustapahtumalle tulee valita nimi ja se on tärkeää asettaa omalle koulutusorganisaatiollesi.';
+			$message ='Tämän jälkeen sille valitaan alku- ja loppuaika kohdasta Ajankohta avautuvista kalentereista.';
+			$message ='Koulutuksen tapahtumapaikka valitaan kirjoittamalla kohtaan Koulutuspaikka osoitetiedot. Silloin alapuolelle avautuu kartta, jossa koulutuspaikka näkyy.';
+			$message ='Kohtaan kuvaus on hyvä kirjoittaa koulutuksen yleiskuvaus, jonka jälkeen kohtaan muut tiedot voidaan kirjoittaa tarkentavia tietoja.';
+			$message ='Erityisen tärkeää on kirjoittaa alimpana oleviin neljään kenttään koulutusta kuvaavat avainsanat.';
+			$message ='Lopuksi koulutukselle voidaan ladata kuva ja painaa nappia Luo koulutus.';
+	wp_mail($user_email, 'Tervetuloa koulutusportaaliin', $message);
 }
 add_action('wp_new_user_notification', 'tm_trainings_user_email');
 
