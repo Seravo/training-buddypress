@@ -644,4 +644,15 @@ function my_em_text_rewrites($translation, $orig) {
 	return $translation;
 }
 add_action ( 'gettext', 'my_em_text_rewrites', 1, 2 );
+
+tm_trainings_user_email() {
+			$message ='':
+		wp_mail(
+		$user_email,
+		ntf( __('[%s] Your username and password'), get_option('blogname') ),
+		$message
+			);
+}
+add_action('wp_new_user_notification', 'tm_trainings_user_email');
+
 ?>
