@@ -409,6 +409,25 @@ function meta_box_attributes(){
 	 em_locate_template('forms/event/attributes.php',true);
 }
 
+function tm_hide_att_meta_boxes() {
+	if (is_admin()) { 
+		add_action( 'add_meta_boxes', 'tm_trainings_add_hint_box' );
+		add_action( 'remove_meta_boxes', 'tm_trainings_remove_trainings_box' );
+		}
+}
+add_action( 'admin_menu', 'tm_hide_att_meta_boxes' );
+
+function tm_trainings_remove_trainings_box (){
+	 	global $EM_Event;
+		global $post;
+
+		 	if (has_term(59, 'event-categories')) {
+	                 remove_meta_box('tagsdiv-event-tags', 'event', 'side');
+			 remove_meta_box('em-event-group', 'event', 'side');
+			 remove_meta_box('em-event-attributes', 'event', 'normal');
+			 } 
+}
+add_action( 'add_meta_boxes_event', 'tm_trainings_remove_trainings_box' );
 
 
 
