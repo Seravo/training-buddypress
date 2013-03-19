@@ -367,8 +367,8 @@ class TmManualWidget extends WP_Widget {
 
         function widget( $args, $instance ) {
                 echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutusportaalin käyttöohjeita</h4><div class="textwidget">';
-                echo '<ol>'
-                echo '<li><a href="http://coss.fi/rekisteroidy/">Rekisteröidy ensin palveluun</a>! Muista täyttää rekisteröitymislomakkeessa myös koulutusportaalia varten tarvittavat tiedot.<li>';
+                echo '<ol>';
+                echo '<li><a href="http://coss.fi/rekisteroidy/">Rekisteröidy ensin palveluun</a>! Muista täyttää rekisteröitymislomakkeessa myös koulutusportaalia varten tarvittavat tiedot.</li>';
                 echo '<li>Rekisteröidyttyäsi koulutusportaaliin voit mennä <a href="http://coss.fi/koulutusyhtiot/create/">koulutusorganisaation luontisivulle</a> ja kirjoittaa koulutusyhtiösi perustiedot. Paina sen jälkeen nappia Perusta tämä ryhmä ja jatka.</li>';
 		echo '<li>Seuraavassa ruudussa kysytään yksityisyysasetuksia, mutta voit painaa yksinkertaisesti nappia Jatka.</li>';
 		echo '<li>Nyt voit valita koulutusorganisaation logon kovalevyltä painamalla Browse ja Lataa kuva. Asetettuasi kuvan koon voit painaa nappia Seuraava vaihe.</li>';
