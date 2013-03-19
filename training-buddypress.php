@@ -393,7 +393,6 @@ class TmManualWidget extends WP_Widget {
         }
 }
 
-
 function tm_register_trainings_widgets() {
 	register_widget( 'TmTrainingWidget' );
 	register_widget( 'TmTrainingTagWidget');
@@ -657,21 +656,5 @@ function my_em_text_rewrites($translation, $orig) {
 	return $translation;
 }
 add_action ( 'gettext', 'my_em_text_rewrites', 1, 2 );
-
-/* function tm_trainings_user_email() {
-			$message ='Rekisteröidyttyäsi koulutusportaaliin voit mennä osoitteeseen http://coss.fi/koulutusyhtiot/create/ ja kirjoittaa koulutusyhtiösi perustiedot. Paina sen jälkeen nappia Perusta tämä ryhmä ja jatka.';
-			$message ='Seuraavassa ruudussa kysytään yksityisyysasetuksia, mutta voit painaa yksinkertaisesti nappia Jatka.';
-			$message ='Nyt voit valita koulutusorganisaation logon kovalevyltä painamalla Browse ja Lataa kuva. Asetettuasi kuvan koon voit painaa nappia Seuraava vaihe.';
-			$message ='Viimeisessä vaiheessa voit kutsua muita organisaation jäseniä mukaan koulutusorganisaatioon, mutta heitä ei ehkä vielä ole palvelussa. Paina Valmis.';
-			$message ='Nyt koulutusorganisaatiosi on luotu. Voit mennä osoitteeseen http://coss.fi/koulutus-uusi/ luomaan ensimmäisen koulutustapahtuman.';
-			$message ='Ensin koulutustapahtumalle tulee valita nimi ja se on tärkeää asettaa omalle koulutusorganisaatiollesi.';
-			$message ='Tämän jälkeen sille valitaan alku- ja loppuaika kohdasta Ajankohta avautuvista kalentereista.';
-			$message ='Koulutuksen tapahtumapaikka valitaan kirjoittamalla kohtaan Koulutuspaikka osoitetiedot. Silloin alapuolelle avautuu kartta, jossa koulutuspaikka näkyy.';
-			$message ='Kohtaan kuvaus on hyvä kirjoittaa koulutuksen yleiskuvaus, jonka jälkeen kohtaan muut tiedot voidaan kirjoittaa tarkentavia tietoja.';
-			$message ='Erityisen tärkeää on kirjoittaa alimpana oleviin neljään kenttään koulutusta kuvaavat avainsanat.';
-			$message ='Lopuksi koulutukselle voidaan ladata kuva ja painaa nappia Luo koulutus.';
-	wp_mail($user_email, 'Tervetuloa koulutusportaaliin', $message);
-}
-add_action('wp_new_user_notification', 'tm_trainings_user_email'); */
 
 ?>
