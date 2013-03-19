@@ -369,19 +369,18 @@ class TmManualWidget extends WP_Widget {
         function widget( $args, $instance ) {
                 // Widget output
                 echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutusportaalin käyttöohjeita</h4><div class="textwidget">';
-                echo '<p>Koulutusportaali esittelee Suomessa j?rjestett?v?t avoimen l?hdekoodin koulutukset. <a href="http://coss.fi/rekisteroidy/">Rekister?idy ensin palveluun</a>!</p>';
+                echo '<p><a href="http://coss.fi/rekisteroidy/">Rekisteröidy ensin palveluun</a>!</p>';
                 echo '<p>Muista täyttää rekisteröitymislomakkeessa myös koulutusportaalia varten tarvittavat tiedot.<p>';
-                echo '<p>Voit lis?t? oman <a href="http://coss.fi/koulutusyhtiot/create/">koulutusorganisaatiosi</a> ja <a href="http://coss.fi/koulutus-uusi/">koulutustapahtumasi</a>.</p>';
                 echo '<p>Rekisteröidyttyäsi koulutusportaaliin voit mennä osoitteeseen http://coss.fi/koulutusyhtiot/create/ ja kirjoittaa koulutusyhtiösi perustiedot. Paina sen jälkeen nappia Perusta tämä ryhmä ja jatka.</p>';
-		echo '<p>Seuraavassa ruudussa kysytään yksityisyysasetuksia, mutta voit painaa yksinkertaisesti nappia Jatka.</p>';'
+		echo '<p>Seuraavassa ruudussa kysytään yksityisyysasetuksia, mutta voit painaa yksinkertaisesti nappia Jatka.</p>';
 		echo '<p>Nyt voit valita koulutusorganisaation logon kovalevyltä painamalla Browse ja Lataa kuva. Asetettuasi kuvan koon voit painaa nappia Seuraava vaihe.</p>';
-		echo '<p>Viimeisessä vaiheessa voit kutsua muita organisaation jäseniä mukaan koulutusorganisaatioon, mutta heitä ei ehkä vielä ole palvelussa. Paina Valmis.</p>';'
+		echo '<p>Viimeisessä vaiheessa voit kutsua muita organisaation jäseniä mukaan koulutusorganisaatioon, mutta heitä ei ehkä vielä ole palvelussa. Paina Valmis.</p>';
 		echo '<p>Nyt koulutusorganisaatiosi on luotu. Voit mennä osoitteeseen http://coss.fi/koulutus-uusi/ luomaan ensimmäisen koulutustapahtuman.</p>';
-		echo '<p>Ensin koulutustapahtumalle tulee valita nimi ja se on tärkeää asettaa omalle koulutusorganisaatiollesi.</p>';'
+		echo '<p>Ensin koulutustapahtumalle tulee valita nimi ja se on tärkeää asettaa omalle koulutusorganisaatiollesi.</p>';
 		echo '<p>Tämän jälkeen sille valitaan alku- ja loppuaika kohdasta Ajankohta avautuvista kalentereista.</p>';
-		echo '<p>Koulutuksen tapahtumapaikka valitaan kirjoittamalla kohtaan Koulutuspaikka osoitetiedot. Silloin alapuolelle avautuu kartta, jossa koulutuspaikka näkyy.</p>';'
+		echo '<p>Koulutuksen tapahtumapaikka valitaan kirjoittamalla kohtaan Koulutuspaikka osoitetiedot. Silloin alapuolelle avautuu kartta, jossa koulutuspaikka näkyy.</p>';
 		echo '<p>Kohtaan kuvaus on hyvä kirjoittaa koulutuksen yleiskuvaus, jonka jälkeen kohtaan muut tiedot voidaan kirjoittaa tarkentavia tietoja.</p>';
-		echo '<p>Erityisen tärkeää on kirjoittaa alimpana oleviin neljään kenttään koulutusta kuvaavat avainsanat.</p>';'
+		echo '<p>Erityisen tärkeää on kirjoittaa alimpana oleviin neljään kenttään koulutusta kuvaavat avainsanat.</p>';
 		echo '<p>Lopuksi koulutukselle voidaan ladata kuva ja painaa nappia Luo koulutus.</p>';
                 echo '</div></div>';
 
