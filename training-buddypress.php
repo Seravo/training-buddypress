@@ -326,16 +326,16 @@ class TmTrainingWidget extends WP_Widget {
 	}
 }
 
-/* Training event location widget */
+/* Training user manual widget */
 
-class TmPortalWidget extends WP_Widget {
+class TmManualWidget extends WP_Widget {
 
-        function TmPortalWidget() {
+        function TmManualWidget() {
                 // Instantiate the parent object
-                parent::__construct( false, 'Koulutusportaali' );
+                parent::__construct( false, 'Manual' );
         }
 
-        function widget( $args, $instance ) {
+        Function widget( $args, $instance ) {
                 // Widget output
                 echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutusportaali</h4><div class="textwidget">';
 		     if (!is_user_logged_in()) {
@@ -358,6 +358,39 @@ echo '<img src="/uploads/2013/03/Oske_vaaka1-300x90.jpg"></img>';
         }
 }
 
+/* Training event location widget */
+
+class TmPortalWidget extends WP_Widget {
+
+        function TmManualWidget() {
+                // Instantiate the parent object
+                parent::__construct( false, 'Koulutusportaali' );
+        }
+
+        function widget( $args, $instance ) {
+                // Widget output
+                echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutusportaali</h4><div class="textwidget">';
+                     if (!is_user_logged_in()) {
+                echo '<p>Koulutusportaali esittelee Suomessa j?rjestett?v?t avoimen l?hdekoodin koulutukset. <a href="http://coss.fi/rekisteroidy/">Rekister?idy palveluun</a>!</p>';
+                     } Else {
+                     echo 'Voit lis?t? oman <a href="http://coss.fi/koulutusyhtiot/create/">koulutusorganisaatiosi</a> ja <a href="http://coss.fi/koulutus-uusi/">koulutustapahtumasi</a\
+>.</p>';
+                     }
+echo '<p>Yhteisty?ss?:</p>';
+echo '<img src="/uploads/2013/03/Oske_vaaka1-300x90.jpg"></img>';
+                echo '</div></div>';
+
+        }
+
+        Function update( $new_instance, $old_instance ) {
+                // Save widget options
+        }
+
+        function form( $instance ) {
+                // Output admin widget options form
+        }
+}
+
 
 function tm_register_trainings_widgets() {
 	register_widget( 'TmTrainingWidget' );
@@ -365,29 +398,7 @@ function tm_register_trainings_widgets() {
 	register_widget( 'TmEventTagWidget');
 	register_widget( 'TmTrainingCompanyWidget' );
 	register_widget( 'TmPortalWidget' );
-}
-add_action( 'widgets_init', 'tm_register_trainings_widgets' );
-
-/* Hide attributes and tags from events */
-
-function tm_hide_att_meta_boxes() {
-	if (is_admin()) { 
-		add_action( 'add_meta_boxes', 'tm_trainings_add_hint_box' );
-		add_action( 'remove_meta_boxes', 'tm_trainings_remove_trainings_box' );
-		}
-}
-add_action( 'admin_menu', 'tm_hide_att_meta_boxes' );
-
-function tm_trainings_remove_trainings_box (){
-	 	global $EM_Event;
-		global $post;
-	 
-		 	if (has_term(59, 'event-categories')) {
-	                 remove_meta_box('tagsdiv-event-tags', 'event', 'side');
-			 remove_meta_box('em-event-group', 'event', 'side');
-			 remove_meta_box('em-event-attributes', 'event', 'normal');
-			 } 
-}
+	register_widget( 'TmManualWidget' );
 add_action( 'add_meta_boxes_event', 'tm_trainings_remove_trainings_box' );
 
 
