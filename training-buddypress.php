@@ -400,10 +400,8 @@ function tm_register_trainings_widgets() {
 	register_widget( 'TmTrainingCompanyWidget' );
 	register_widget( 'TmPortalWidget' );
 	register_widget( 'TmManualWidget' );
-add_action( 'add_meta_boxes_event', 'tm_trainings_remove_trainings_box' );
-
-
-
+}
+add_action( 'widgets_init', 'tm_register_trainings_widgets' );
 
 function meta_box_attributes(){
 	 em_locate_template('forms/event/attributes.php',true);
