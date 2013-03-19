@@ -326,7 +326,6 @@ class TmTrainingWidget extends WP_Widget {
 	}
 }
 
-/* Training user manual widget */
 
 class TmPortalWidget extends WP_Widget {
 
@@ -343,8 +342,8 @@ class TmPortalWidget extends WP_Widget {
 		     } Else {
 		     echo 'Voit lisätä oman <a href="http://coss.fi/koulutusyhtiot/create/">koulutusorganisaatiosi</a> ja <a href="http://coss.fi/koulutus-uusi/">koulutustapahtumasi</a>.</p>';
 		     }
-echo '<p>Yhteistyössä:</p>';
-echo '<img src="/uploads/2013/03/Oske_vaaka1-300x90.jpg"></img>';
+			echo '<p>Yhteistyössä:</p>';
+			echo '<img src="/uploads/2013/03/Oske_vaaka1-300x90.jpg"></img>';
                 echo '</div></div>';
 
         }
@@ -367,7 +366,6 @@ class TmManualWidget extends WP_Widget {
         }
 
         function widget( $args, $instance ) {
-                // Widget output
                 echo '<div id="text-6" class="widget widget_text well nav nav-list"><h4 class="widgettitle nav-header">Koulutusportaalin käyttöohjeita</h4><div class="textwidget">';
                 echo '<p><a href="http://coss.fi/rekisteroidy/">Rekisteröidy ensin palveluun</a>!</p>';
                 echo '<p>Muista täyttää rekisteröitymislomakkeessa myös koulutusportaalia varten tarvittavat tiedot.<p>';
